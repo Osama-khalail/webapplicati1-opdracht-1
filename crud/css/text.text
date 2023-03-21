@@ -1,0 +1,60 @@
+                <?php
+                  $resulset = $conn->query("SELECT * FROM menu");
+                  while ($item = $resulset->fetch()) {
+                    echo '<p class ="gerecht-text">' .$item['naam'] . '</p>'
+              
+
+                  }
+?>
+
+   <div class="eten">
+         <div class="eten-box"></div>
+         <div class="eten-box"></div>
+         <div class="eten-box"></div>
+          </div>
+                    <?php
+                  $resulset = $conn->query("SELECT * FROM menu");
+                  while ($item = $resulset->fetch()) {
+                   
+                    echo
+                    '<div class="eten-box">
+                       <div
+                     <p class ="gerecht-text">' .$item['naam'] . '</p>
+                     <div class="gerecht-omschrijving">' .$item['bijschrijving'].
+                    '</div> 
+                    </div>
+                    <div class="gerecht-prijs">' .$item['prijs'].'</div>
+                
+                    </div>' 
+                    ;
+                    
+                   
+              
+                  }
+?>
+
+
+
+
+
+
+   <?php
+                  $resulset = $conn->query("SELECT * FROM menu");
+                  while ($item = $resulset->fetch()) {
+                   
+                    echo
+                    '<div class="eten-box">
+                       <div
+                     <p class ="gerecht-text">' .$item['naam'] . '</p>
+                     <div class="gerecht-omschrijving">' .$item['bijschrijving'].
+                    '</div> 
+                    </div>
+                    <div class="gerecht-prijs">' .$item['prijs'].'</div>
+                
+                    </div>';
+                   
+              
+                  }
+?>
+   
+   
