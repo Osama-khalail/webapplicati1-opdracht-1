@@ -59,37 +59,32 @@
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">My </span>
+                        <span class="item">Hartige Crepês </span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">P</span>
+                        <span class="item">Zoete Crepês</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">P</span>
+                        <span class="item">Special Crêpes</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">D</span>
+                        <span class="item">Spaanse Quesadillas</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">R</span>
+                        <span class="item">Griekse Pita's</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">A</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="item">S</span>
+                        <span class="item">Wrap Burger</span>
                     </a>
                 </li>
             </ul>
