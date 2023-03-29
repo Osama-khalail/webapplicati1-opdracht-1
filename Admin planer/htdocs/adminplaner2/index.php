@@ -16,7 +16,7 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="" class="active">
                       <span class="las la-igloo"></span>
                       <span>Dashobard</span></a>
                 </li>
@@ -32,7 +32,7 @@
                 </li>
                 <li>
                     <a href="">
-                      <span class="las la-clipboard-list"></span>
+                      <span class="las la-shopping-bag"></span>
                       <span>bestelling</span></a>
                 </li>
                 <li>
@@ -82,41 +82,168 @@
             <h1>54</h1>
             <span>Klanten</span>
             </div>
-          </div>
-          <div>
+            <div>
             <span class="las la-users"></span>
-
           </div>
+          </div>
+         
           <div class="card-single">
             <div>
             <h1>79</h1>
             <span>Projects</span>
             </div>
-          </div>
-          <div>
+            <div>
             <span class="las la-clipboard"></span>
           </div>
-
+          </div>
           <div class="card-single">
             <div>
             <h1>256</h1>
             <span>bestelling</span>
             </div>
-          </div>
-          <div>
+            <div>
             <span class="las la-clipboard-list"></span>
           </div>
-
+          </div>
           <div class="card-single">
             <div>
             <h1>100K&euro;</h1>
             <span>inkomen</span>
             </div>
+            <div>
+            <span class="lab la-google-wallet"></span>
           </div>
-          <div>
-            <span class="las la-users"></span>
           </div>
         </div>
+        <div class="reecent-grid">
+            <div class="projects">
+                 <div class="card-header">
+                       <h3>Recent</h3>
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                 </div>
+                 <div class="card-body">
+                       <table width="100%">
+                          <thead>
+                             <tr> 
+                               <td>Project</td>
+                               <td>Afdeling</td>
+                               <td>toestand</td>
+                             </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>UI/Ux Design</td>
+                              <td>UI Team</td>
+                              <td>
+                                  <span class="status"></span>
+                                  beoordeling
+                              </td>
+                            </tr>
+                              <tr>
+                                 <td>Web development</td>
+                                 <td>UI Team</td>
+                              <td>
+                                  <span class="status"></span>
+                                  beoordeling
+                              </td>
+                              </tr>
+                              <tr>
+                                 <td>Ushop app</td>
+                                 <td>UI Team</td>
+                              <td>
+                                  <span class="status"></span>
+                                  beoordeling
+                              </td> 
+                              </tr>
+                          </tbody>
+                       </table>
+                 </div>
+            </div>
+             <div class="customers">
+                   <div class="card-header">
+                       <h3>Nieuw klanten</h3>
+                        <button>See all <span class="las la-arrow-right"></span></button>
+                 </div>
+                    <div class="card-body">
+                          <div class="customer">
+                               <div>
+                               <img src="img/kalnten.png"  width="40px"
+                                height="40px" alt="">
+                                 <div>
+                                       <h4>Dylan,Backus</h4>
+                                       <small>Adres:Arnhem</small>
+                                 </div>
+                               </div>
+                               <div>
+                                   <span class="las la-user-circle"></span>
+                                   <span class="las la-comment"></span>
+                                   <span class="las la-phone"></span>
+                               </div>
+                          </div>
+                          <div class="customer">
+                               <div>
+                               <img src="img/kalnten.png"  width="40px"
+                                height="40px" alt="">
+                                 <div>
+                                       <h4>Dylan,Backus</h4>
+                                       <small>Adres:Arnhem</small>
+                                 </div>
+                               </div>
+                               <div>
+                                   <span class="las la-user-circle"></span>
+                                   <span class="las la-comment"></span>
+                                   <span class="las la-phone"></span>
+                               </div>
+                          </div>
+                          <div class="customer">
+                               <div>
+                               <img src="img/kalnten.png"  width="40px"
+                                height="40px" alt="">
+                                 <div>
+                                       <h4>Dylan,Backus</h4>
+                                       <small>Adres:Arnhem</small>
+                                 </div>
+                               </div>
+                               <div>
+                                   <span class="las la-user-circle"></span>
+                                   <span class="las la-comment"></span>
+                                   <span class="las la-phone"></span>
+                               </div>
+                          </div>
+                          <div class="customer">
+                               <div>
+                               <img src="img/kalnten.png"  width="40px"
+                                height="40px" alt="">
+                                 <div>
+                                       <h4>Dylan,Backus</h4>
+                                       <small>Adres:Arnhem</small>
+                                 </div>
+                               </div>
+                               <div>
+                                   <span class="las la-user-circle"></span>
+                                   <span class="las la-comment"></span>
+                                   <span class="las la-phone"></span>
+                               </div>
+                          </div>
+                          <div class="customer">
+                               <div>
+                               <img src="img/kalnten.png"  width="40px"
+                                height="40px" alt="">
+                                 <div>
+                                       <h4>Dylan,Backus</h4>
+                                       <small>Adres:Arnhem</small>
+                                 </div>
+                               </div>
+                               <div>
+                                   <span class="las la-user-circle"></span>
+                                   <span class="las la-comment"></span>
+                                   <span class="las la-phone"></span>
+                               </div>
+                          </div>
+                     </div>
+                  </div>
+              </div>        
+        </div>  
       </main>
     </div>
 </body>
