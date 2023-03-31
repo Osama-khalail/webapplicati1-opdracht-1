@@ -28,7 +28,7 @@
                 <li>
                     <a href="">
                       <span class="las la-clipboard-list"></span>
-                      <span>Projects</span></a>
+                      <span>Gerechten</span></a>
                 </li>
                 <li>
                     <a href="">
@@ -90,7 +90,7 @@
           <div class="card-single">
             <div>
             <h1>79</h1>
-            <span>Projects</span>
+            <span>Gerechten</span>
             </div>
             <div>
             <span class="las la-clipboard"></span>
@@ -119,15 +119,15 @@
             <div class="projects">
                  <div class="card-header">
                        <h3>Recent</h3>
-                        <button>See all <span class="las la-arrow-right"></span></button>
+                        <button><a class="voeg-gerecht-text" href=""> Voeg een nieuw gerechten </a> <span class="las la-arrow-right"></span></button>
                  </div>
                  <div class="card-body">
                        <table width="100%">
                           <thead>
                              <tr> 
-                               <td>Project</td>
-                               <td>Afdeling</td>
-                               <td>toestand</td>
+                               <td>Naam</td>
+                               <td>Omschrijving</td>
+                               <td>Prijs</td>
                              </tr>
                           </thead>
                           <tbody>
@@ -166,75 +166,75 @@
                  </div>
                     <div class="card-body">
                           <div class="customer">
-                               <div>
+                               <div class="customer-img" >
                                <img src="img/kalnten.png"  width="40px"
                                 height="40px" alt="">
-                                 <div>
+                                 <div class="info">
                                        <h4>Dylan,Backus</h4>
                                        <small>Adres:Arnhem</small>
                                  </div>
                                </div>
-                               <div>
+                               <div class="contact">
                                    <span class="las la-user-circle"></span>
                                    <span class="las la-comment"></span>
                                    <span class="las la-phone"></span>
                                </div>
                           </div>
                           <div class="customer">
-                               <div>
+                               <div class="customer-img">
                                <img src="img/kalnten.png"  width="40px"
                                 height="40px" alt="">
-                                 <div>
+                                 <div class="info">
                                        <h4>Dylan,Backus</h4>
                                        <small>Adres:Arnhem</small>
                                  </div>
                                </div>
-                               <div>
+                               <div class="contact">
                                    <span class="las la-user-circle"></span>
                                    <span class="las la-comment"></span>
                                    <span class="las la-phone"></span>
                                </div>
                           </div>
                           <div class="customer">
-                               <div>
+                               <div class="customer-img">
                                <img src="img/kalnten.png"  width="40px"
                                 height="40px" alt="">
-                                 <div>
+                                 <div class="info">
                                        <h4>Dylan,Backus</h4>
                                        <small>Adres:Arnhem</small>
                                  </div>
                                </div>
-                               <div>
+                               <div class="contact">
                                    <span class="las la-user-circle"></span>
                                    <span class="las la-comment"></span>
                                    <span class="las la-phone"></span>
                                </div>
                           </div>
                           <div class="customer">
-                               <div>
+                               <div class="customer-img">
                                <img src="img/kalnten.png"  width="40px"
                                 height="40px" alt="">
-                                 <div>
+                                 <div class="info">
                                        <h4>Dylan,Backus</h4>
                                        <small>Adres:Arnhem</small>
                                  </div>
                                </div>
-                               <div>
+                               <div class="contact">
                                    <span class="las la-user-circle"></span>
                                    <span class="las la-comment"></span>
                                    <span class="las la-phone"></span>
                                </div>
                           </div>
                           <div class="customer">
-                               <div>
+                               <div class="customer-img">
                                <img src="img/kalnten.png"  width="40px"
                                 height="40px" alt="">
-                                 <div>
+                                 <div class="info">
                                        <h4>Dylan,Backus</h4>
                                        <small>Adres:Arnhem</small>
                                  </div>
                                </div>
-                               <div>
+                               <div class="contact">
                                    <span class="las la-user-circle"></span>
                                    <span class="las la-comment"></span>
                                    <span class="las la-phone"></span>
