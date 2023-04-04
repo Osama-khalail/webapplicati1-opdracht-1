@@ -19,7 +19,7 @@
                 <div class="bovenste-gedeelte-boxen midden"><div class="boven-menu">
                     <a class="text-menu" href="">Home</a>
                     <a class="text-menu" href="">Reserveren</a>
-                    <a class="text-menu"  href="osama.php">Meer</a>
+                    <a class="text-menu"  href="">Meer</a>
                     <a class="text-menu bestling-text" href="login.php">Bestel online</a>
                 </div></div>
                 <div class="bovenste-gedeelte-boxen rechts">
@@ -59,37 +59,37 @@
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">My </span>
+                        <span class="item">Hartige Crepês </span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">P</span>
+                        <span class="item">Zoete Crepês</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">P</span>
+                        <span class="item">Special Crêpes</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">D</span>
+                        <span class="item">Spaanse Quesadillas</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">R</span>
+                        <span class="item">Griekse Pita's</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">A</span>
+                        <span class="item">Wrap Burger</span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <span class="item">S</span>
+                        <span class="item">Wrappini's</span>
                     </a>
                 </li>
             </ul>
@@ -114,28 +114,8 @@ while ($item = $resulset->fetch()) {
 }
 ?>
        
-          </div>
-          <div class="big-div-eten">
-            <?php
-$resulset = $conn->query("SELECT * FROM menu2");
-while ($item = $resulset->fetch()) {
-  echo '<div class="eten-box">';
-  echo '<div class="gerecht-text">';
-  echo '<div class="gerecht-naam"><p>' . $item['naam'] . '</p></div>';
-  echo '<div class="gerecht-omschrijving"><p>' . $item['bijschrijving'] . '</p></div>';
-  echo '</div>';
-  echo '<div class="prijs-box">';
-  echo '<div class="prijs">  &euro;' . $item['prijs'] . '</div>';
-  echo '<div class="Toe-voegen-en-verwijderen-boxen">';
-  echo '<div class="Toe-voegen-box"><div class="Toe-voegen-text"><a href="" class="Toe-voegen-text">Toe voegen</a></div></div>';
-  echo '<div class="verwijderen-box"><a href="" class="Toe-voegen-text">verwijderen</a></div>';
-  echo '</div>';
-  echo '</div>';
-  echo '</div>';
-}
-?>
-       
-          </div>
+         
+ 
         </div>
     </div>
  </main>

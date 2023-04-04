@@ -7,11 +7,16 @@
   <link rel="stylesheet" href="css/adminplaner2.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <title> admin planer2</title>
+  <?php
+  require_once './database/conn.php';
+?>
+
 </head>
 <body>
+      <input type="checkbox" id="nav-toggle">
     <div class="side-bar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-dog"></span>logo</h2>
+            <h2><span class="lab la-dog"></span><span>Logo</span></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -58,7 +63,7 @@
     <div class="main-content">
       <header>
         <h2>
-          <label for="">
+          <label for="nav-toggle">
             <span class="las la-bars"></span>
           </label>
           Dashboard
@@ -108,7 +113,7 @@
           <div class="card-single">
             <div>
             <h1>100K&euro;</h1>
-            <span>inkomen</span>
+            <span class="inkomen-text">inkomen</span>
             </div>
             <div>
             <span class="lab la-google-wallet"></span>
@@ -117,10 +122,76 @@
         </div>
         <div class="reecent-grid">
             <div class="projects">
-                 <div class="card-header">
-                       <h3>Recent</h3>
-                        <button><a class="voeg-gerecht-text" href=""> Voeg een nieuw gerechten </a> <span class="las la-arrow-right"></span></button>
-                 </div>
+            <?php
+              if(isset($_POST['submit_button'])) {
+                  //  Voeg een nieuw gerecht toe
+                    $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
+                      $user = 'root';
+                       $password = '';
+                       $dbh = new PDO($dsn, $user, $password);
+                       // Leesbaarheid
+                      $naam = $_POST['gerecht-naam'];
+                      $bijschrijving = $_POST['gerecht-beschrijving'];
+                      $prijs = $_POST['gerecht-prijs'];
+                      // Informatie toevoegen aan de database.
+                         $statement = $dbh->prepare("INSERT INTO menu(naam, bijschrijving, prijs) VALUES (?, ?, ?)");
+                         $statement->execute([$naam, $bijschrijving, $prijs]);
+                           }
+                        ?>
+                    <div class="card-header">
+                      <h3>Gerechten</h3> 
+                      <?php
+                      // verijwijderen uit datebase
+                       $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
+                       $user = 'root';
+                       $password = '';
+                       $dbh = new PDO($dsn, $user, $password);
+
+                       // Verwerk formulier
+                       if (isset($_POST['verwijderen'])) {
+                       $gerecht_id = $_POST['gerecht_id'];
+                       $stmt = $dbh->prepare("DELETE FROM menu WHERE id = ?");
+                       $stmt->execute(array($gerecht_id));
+                       header("Location: index.php");
+                      exit;
+                      }
+                      ?>
+                 <a class="Gerecht-verwijderen" href="#" onclick="openPopup('popup-Gerecht-verwijderen')">Gerecht verwijderen <span class="las la-arrow-right"></span></a>
+
+<!-- Popup -->
+<div id="popup-Gerecht-verwijderen" class="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <h2>Gerecht verwijderen</h2>
+    <form method="POST">
+      <label for="gerecht_id">Gerecht ID:</label>
+      <input type="text" name="gerecht_id" id="gerecht_id">
+      <br><br>
+      <input type="submit" name="verwijderen" value="Verwijderen">
+    </form>
+  </div> 
+</div>
+
+
+
+                     <a href=""> <button id="popup-button">Voeg een nieuw gerecht toe <span class="las la-arrow-right"></span></button></a>
+                    </div>
+                    <div id="popup" class="popup">
+                       <div class="popup-content">
+                         <span class="close">&times;</span>
+                         <h4>Voeg een nieuw gerecht toe</h4>
+                         <form method="POST" action="">
+                          <label for="gerecht-naam">Naam gerecht:</label>
+                           <input type="text" id="gerecht-naam" name="gerecht-naam"><br><br>
+                           <label for="gerecht-beschrijving">Beschrijving:</label> 
+                           <textarea id="gerecht-beschrijving" name="gerecht-beschrijving"></textarea><br><br>
+                          <label for="gerecht-prijs">Prijs:</label>
+                           <input type="text" id="gerecht-prijs" name="gerecht-prijs"><br><br>  
+                             <input type="submit" name="submit_button" value="Toevoegen">
+                            </form>
+                            </div>
+                          </div> 
+                            
                  <div class="card-body">
                        <table width="100%">
                           <thead>
@@ -131,31 +202,20 @@
                              </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>UI/Ux Design</td>
-                              <td>UI Team</td>
-                              <td>
-                                  <span class="status"></span>
-                                  beoordeling
-                              </td>
-                            </tr>
-                              <tr>
-                                 <td>Web development</td>
-                                 <td>UI Team</td>
-                              <td>
-                                  <span class="status"></span>
-                                  beoordeling
-                              </td>
-                              </tr>
-                              <tr>
-                                 <td>Ushop app</td>
-                                 <td>UI Team</td>
-                              <td>
-                                  <span class="status"></span>
-                                  beoordeling
-                              </td> 
-                              </tr>
-                          </tbody>
+                            <?php
+                           $resulset = $conn->query("SELECT * FROM menu");
+                           while ($item = $resulset->fetch()) {
+                                  echo '<tr>';
+                                  echo '<td>' . $item['naam'] . '</td>';
+                                  echo '<td>' . $item['bijschrijving'] . '</td>';
+                                  echo '<td>';
+                                  echo '<span class="status"></span>';
+                                  echo '&euro;' . $item['prijs'];
+                                  echo '</td>';
+                                  echo '</tr>';
+                                       }
+                                        ?>
+                                        </tbody>
                        </table>
                  </div>
             </div>
@@ -247,4 +307,5 @@
       </main>
     </div>
 </body>
+<script src="adminplaner2.js"></script>
 </html>
