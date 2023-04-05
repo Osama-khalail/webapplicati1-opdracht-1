@@ -21,7 +21,7 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active">
+                    <a href="index.php" class="active">
                       <span class="las la-igloo"></span>
                       <span>Dashobard</span></a>
                 </li>
@@ -31,7 +31,7 @@
                       <span>klanten</span></a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="gerechten.php">
                       <span class="las la-clipboard-list"></span>
                       <span>Gerechten</span></a>
                 </li>
@@ -91,16 +91,30 @@
             <span class="las la-users"></span>
           </div>
           </div>
-         
-          <div class="card-single">
-            <div>
-            <h1>79</h1>
-            <span>Gerechten</span>
-            </div>
-            <div>
-            <span class="las la-clipboard"></span>
-          </div>
-          </div>
+          <?php
+              $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
+              $user = 'root';
+              $password = '';
+              $dbh = new PDO($dsn, $user, $password);
+
+
+              $stmt = $dbh->prepare("SELECT COUNT(*) as count FROM menu");
+              $stmt->execute();
+              $result = $stmt->fetch();
+
+             // Haal het resultaat op
+              $aantalGerechten = $result['count'];
+              ?>
+
+             <div class="card-single">
+             <div>
+                 <h1><?php echo $aantalGerechten; ?></h1>
+               <span>Gerechten</span>
+                  </div> 
+                    <div>
+                       <span class="las la-clipboard"></span>
+                       </div>
+                 </div>
           <div class="card-single">
             <div>
             <h1>256</h1>
@@ -123,64 +137,31 @@
         <div class="reecent-grid">
             <div class="projects">
             <?php
-              if(isset($_POST['submit_button'])) {
-                  //  Voeg een nieuw gerecht toe
-                    $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
-                      $user = 'root';
-                       $password = '';
-                       $dbh = new PDO($dsn, $user, $password);
-                       // Leesbaarheid
-                      $naam = $_POST['gerecht-naam'];
-                      $bijschrijving = $_POST['gerecht-beschrijving'];
-                      $prijs = $_POST['gerecht-prijs'];
-                      // Informatie toevoegen aan de database.
-                         $statement = $dbh->prepare("INSERT INTO menu(naam, bijschrijving, prijs) VALUES (?, ?, ?)");
-                         $statement->execute([$naam, $bijschrijving, $prijs]);
-                           }
-                        ?>
+            if(isset($_POST['submit_button'])) {
+   
+              $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
+              $user = 'root';
+              $password = '';
+          $dbh = new PDO($dsn, $user, $password);
+           // Leesbaarheid
+           $naam = $_POST['gerecht-naam'];
+           $bijschrijving = $_POST['gerecht-beschrijving'];
+           $prijs = $_POST['gerecht-prijs'];
+                 // Informatie toevoegen aan de database.
+                  $statement = $dbh->prepare("INSERT INTO menu(naam, bijschrijving, prijs) VALUES (?, ?, ?)");
+                   $statement->execute([$naam, $bijschrijving, $prijs]);
+                  }
+                  ?>
                     <div class="card-header">
                       <h3>Gerechten</h3> 
-                      <?php
-                      // verijwijderen uit datebase
-                       $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
-                       $user = 'root';
-                       $password = '';
-                       $dbh = new PDO($dsn, $user, $password);
-
-                       // Verwerk formulier
-                       if (isset($_POST['verwijderen'])) {
-                       $gerecht_id = $_POST['gerecht_id'];
-                       $stmt = $dbh->prepare("DELETE FROM menu WHERE id = ?");
-                       $stmt->execute(array($gerecht_id));
-                       header("Location: index.php");
-                      exit;
-                      }
-                      ?>
-                 <a class="Gerecht-verwijderen" href="#" onclick="openPopup('popup-Gerecht-verwijderen')">Gerecht verwijderen <span class="las la-arrow-right"></span></a>
-
-<!-- Popup -->
-<div id="popup-Gerecht-verwijderen" class="popup">
-  <div class="popup-content">
-    <span class="close">&times;</span>
-    <h2>Gerecht verwijderen</h2>
-    <form method="POST">
-      <label for="gerecht_id">Gerecht ID:</label>
-      <input type="text" name="gerecht_id" id="gerecht_id">
-      <br><br>
-      <input type="submit" name="verwijderen" value="Verwijderen">
-    </form>
-  </div> 
-</div>
-
-
-
-                     <a href=""> <button id="popup-button">Voeg een nieuw gerecht toe <span class="las la-arrow-right"></span></button></a>
+                     <a href="verwijder_gerecht.php"><button id="">Gerecht verwijderen <span class="las la-arrow-right"></span></button></a> 
+                      <button id="popup-button">Voeg een nieuw gerecht toe <span class="las la-arrow-right"></span></button>
                     </div>
                     <div id="popup" class="popup">
                        <div class="popup-content">
-                         <span class="close">&times;</span>
-                         <h4>Voeg een nieuw gerecht toe</h4>
-                         <form method="POST" action="">
+                         <span class="close close2">&times;</span>
+                         <h4 class="voeg-text">Voeg een nieuw gerecht toe</h4>
+                         <form  class="gerecht-invullen"method="POST" action="">
                           <label for="gerecht-naam">Naam gerecht:</label>
                            <input type="text" id="gerecht-naam" name="gerecht-naam"><br><br>
                            <label for="gerecht-beschrijving">Beschrijving:</label> 

@@ -22,26 +22,20 @@ window.onclick = function(event) {
   }
 }
 
-
-
-
 // Open popup
-function openPopup(popupId) {
-  document.getElementById(popupId).style.display = "block";
+function openPopup(popupId){
+  document.getElementById(popupId).style.display="block";
 }
-
-// Close popup
-var closeButtons = document.getElementsByClassName("close");
-for (var i = 0; i < closeButtons.length; i++) {
-  closeButtons[i].onclick = function() {
-    var popup = this.parentElement.parentElement;
-    popup.style.display = "none";
+// Close popup when clicking close button
+var closeButtons=document.getElementsByClassName("close2");
+for(var i = 0; i < closeButtons.length; i++){
+  closeButtons[i].onclick=function(){
+    var popup =this.parentElement.parentElement;
+    popup.style.display="none";
   }
 }
-
-// Close popup when clicking outside of it
-window.onclick = function(event) {
-  var popups = document.getElementsByClassName("popup");
+window.onclick = function(event){
+  var popups = document.getElementsByClassName("popup-verwijderen2");
   for (var i = 0; i < popups.length; i++) {
     if (event.target == popups[i]) {
       popups[i].style.display = "none";

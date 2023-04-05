@@ -53,3 +53,11 @@ input[type="submit"]:hover, .annuleren:hover {
 	transition: 600ms;
 
 }
+.customer, .customers, .card-body, .gerechten-pagina{
+    position: fixed;
+    left: 358px;
+    right: 6px;
+    border: 2px solid var(--main-color);  
+
+}
+    
