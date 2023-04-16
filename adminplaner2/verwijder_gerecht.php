@@ -26,7 +26,7 @@ if (isset($_POST['verwijderen'])) {
     $stmt->bindParam(':id', $gerecht_id);
     $stmt->execute();
 
-    header("Location: index.php");
+    header("Location: index.php"); 
     exit;
 }
 
@@ -54,6 +54,57 @@ $dbh = null;
             <?php } ?>
         </select>
         <input type="submit" name="verwijderen" value="Verwijderen">
+    </form>
+</div>
+<?php
+// Connectie met database...
+$dsn = 'mysql:dbname=db_login;host=127.0.0.1';
+$user = 'root';
+$password = '';
+$dbh = new PDO($dsn, $user, $password);
+
+// Verwerk formulier
+if (isset($_POST['submit'])) {
+    $gerecht_id = $_POST['gerecht_id'];
+    $bijschrijving = $_POST['bijschrijving'];
+    
+    // Voer query uit om de bijschrijving van het geselecteerde gerecht bij te werken
+    $stmt = $dbh->prepare("UPDATE menu SET bijschrijving = :bijschrijving WHERE id = :id");
+    $stmt->bindParam(':bijschrijving', $bijschrijving);
+    $stmt->bindParam(':id', $gerecht_id);
+    $stmt->execute();
+
+    header("Location: index.php"); 
+    exit;
+}
+
+// Voer query uit om alle gerechten op te halen
+$stmt = $dbh->query("SELECT * FROM menu");
+
+// Maak een array van alle gerechten voor gebruik in keuzelijst
+$gerechten = array();
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $gerechten[$row['id']] = $row['naam'];
+}
+
+// Sluit de databaseverbinding
+$dbh = null;
+?>
+
+<div class="container">
+    <h2>Selecteer een gerecht om te bewerken</h2>
+    <form method="POST">
+        <label for="gerecht">Gerecht:</label>
+        <select name="gerecht_id" id="gerecht">
+            <?php foreach ($gerechten as $id => $naam) { ?>
+                <option value="<?php echo $id; ?>"><?php echo $naam; ?></option>
+            <?php } ?>
+        </select>
+        <br><br>
+        <label for="bijschrijving">Bijschrijving:</label>
+        <input type="text" name="bijschrijving" id="bijschrijving">
+        <br><br>
+        <input type="submit" name="submit" value="Bijwerken">
     </form>
 </div>
 

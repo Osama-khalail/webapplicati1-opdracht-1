@@ -16,7 +16,7 @@
       <input type="checkbox" id="nav-toggle">
     <div class="side-bar">
         <div class="sidebar-brand">
-            <h2><span class="lab la-dog"></span><span>Logo</span></h2>
+            <h2><span class="lab la-dog"></span><img src="img/logo.jpeg" alt=""></h2>
         </div>
         <div class="sidebar-menu">
             <ul>
@@ -109,10 +109,10 @@
              <div class="card-single">
              <div>
                  <h1><?php echo $aantalGerechten; ?></h1>
-               <span>Gerechten</span>
+              <a href="gerechten.php"><span>Gerechten</span></a> 
                   </div> 
                     <div>
-                       <span class="las la-clipboard"></span>
+                       <a href="gerechten.php"><span class="las la-clipboard"></span></a>
                        </div>
                  </div>
           <div class="card-single">
@@ -154,7 +154,7 @@
                   ?>
                     <div class="card-header">
                       <h3>Gerechten</h3> 
-                     <a href="verwijder_gerecht.php"><button id="">Gerecht verwijderen <span class="las la-arrow-right"></span></button></a> 
+                     <a href="verwijder_gerecht.php"><button id="">Gerecht verwijderen of bewerken <span class="las la-arrow-right"></span></button></a> 
                       <button id="popup-button">Voeg een nieuw gerecht toe <span class="las la-arrow-right"></span></button>
                     </div>
                     <div id="popup" class="popup">

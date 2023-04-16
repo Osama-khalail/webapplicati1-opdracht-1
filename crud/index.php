@@ -15,7 +15,7 @@
     <main>
         <nav class="top-nav">
             <div class="bovenste-gedeelte">
-                <div class="bovenste-gedeelte-boxen links"><div class="logo"></div></div>
+                <div class="bovenste-gedeelte-boxen links"><div class="logo"><img src="img/logo.jpeg" alt=""></div></div>
                 <div class="bovenste-gedeelte-boxen midden"><div class="boven-menu">
                     <a class="text-menu" href="">Home</a>
                     <a class="text-menu" href="">Reserveren</a>
@@ -32,10 +32,32 @@
                 <div class="onderst-gedeelte-boxen onderlinks">
                 </div>
                 <div class="onderst-gedeelte-boxen ondermidden">
-                    <div class="search__container">
-                       <input class="search__input" type="text" placeholder="Search">
-                       <h3 class=""></h3>
-                    </div>                
+                <?php
+                     $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
+                     $user = 'root';
+                     $password = '';
+                      $connectie = new PDO($dsn, $user, $password);
+
+                      if(isset($_POST['search'])) {
+                             $zoekterm = '%'.$_POST['search'].'%';
+                                  $stmt = $connectie->prepare("SELECT * FROM menu WHERE naam LIKE ?");
+                         $stmt->execute([$zoekterm]);
+                          $resultSet = $stmt->fetchAll();
+                                }
+
+
+                         else {
+                                   $resultSet = $connectie->query("SELECT * FROM menu")->fetchAll();
+                                }
+                                ?>
+             
+             
+                <form method="post">
+                <div class="search__container">
+                <input class="search__input" type="text" placeholder="Search" name="search">
+                <h3 class=""></h3>
+                  </div>
+                  </form>
                 </div>
                 <div class="onderst-gedeelte-boxen onderrechts"></div>
             </div>
@@ -46,15 +68,13 @@
         <div class="sidebar">
            <!--profile image & text-->
             <div class="profile">
-                <img src="img/Magnifying_glass_icon.svg.png" alt="">
-                <h3 class="h33"> Welcom</h3>
+                <h4 class="h33"> Zorba Populaire gerechten </h4>
             
             </div>
             <!--menu item-->
             <ul>
                 <li>
                     <a href="#" class="active">
-                        <span class="item">Populaire gerechten</span>
                     </a>
                 </li>
                 <li>
@@ -96,8 +116,7 @@
             </div>
             <div class="big-div-eten">
             <?php
-$resulset = $conn->query("SELECT * FROM menu");
-while ($item = $resulset->fetch()) {
+foreach($resultSet as $item) {
   echo '<div class="eten-box">';
   echo '<div class="gerecht-text">';
   echo '<div class="gerecht-naam"><p>' . $item['naam'] . '</p></div>';
@@ -117,7 +136,61 @@ while ($item = $resulset->fetch()) {
          
  
         </div>
+        
     </div>
+    <footer class="footer-distributed">
+
+<div class="footer-left">
+
+    <h3><span>Welcome bij Zorba</span></h3>
+
+    <p class="footer-links">
+        <a href="#" class="link-1">Home</a>
+                
+        <a href="#">About</a>
+        
+        <a href="#">Contact</a>
+    </p>
+
+</div>
+
+<div class="footer-center">
+
+    <div>
+        <i class="fa fa-map-marker"></i>
+        <p><span>6811 AN Arnhem</span> Gele Rijders Plein 1</p>
+    </div>
+
+    <div>
+        <i class="fa fa-phone"></i>
+        <p>+31 699-66-555 </p>
+    </div>
+
+    <div>
+        <i class="fa fa-envelope"></i>
+        <p><a href="">restaurant@gmail.com</a></p>
+    </div>
+
+</div>
+
+<div class="footer-right">
+
+    <p class="footer-company-about">
+        <span>Over het restaurant</span>
+        Zorba is een streetfoodrestaurant dat is gevestigd in de stad Groningen. Het restaurant is vernoemd naar Zorba de Griek, een bekend boek van de Griekse schrijver Nikos Kazantzakis.</p>
+
+    <div class="footer-icons">
+
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+</div>
+
+</footer>
  </main>
     <script src="javascript/searchbox.js"></script>
     
