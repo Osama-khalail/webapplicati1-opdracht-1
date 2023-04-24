@@ -55,7 +55,9 @@ $dbh = null;
         </select>
         <input type="submit" name="verwijderen" value="Verwijderen">
     </form>
-</div>
+
+
+   </div>
 <?php
 // Connectie met database...
 $dsn = 'mysql:dbname=db_login;host=127.0.0.1';
@@ -66,11 +68,15 @@ $dbh = new PDO($dsn, $user, $password);
 // Verwerk formulier
 if (isset($_POST['submit'])) {
     $gerecht_id = $_POST['gerecht_id'];
-    $bijschrijving = $_POST['bijschrijving'];
+    $gerecht_naam = $_POST['gerecht_naam'];
+    $bijschrijving = isset($_POST['bijschrijving']) ? $_POST['bijschrijving'] : '';
+    $prijs = isset($_POST['prijs']) ? $_POST['prijs'] : '';
     
-    // Voer query uit om de bijschrijving van het geselecteerde gerecht bij te werken
-    $stmt = $dbh->prepare("UPDATE menu SET bijschrijving = :bijschrijving WHERE id = :id");
+    // Voer query uit om de gegevens van het geselecteerde gerecht bij te werken
+    $stmt = $dbh->prepare("UPDATE menu SET naam = :naam, bijschrijving = :bijschrijving, prijs = :prijs WHERE id = :id");
+    $stmt->bindParam(':naam', $gerecht_naam);
     $stmt->bindParam(':bijschrijving', $bijschrijving);
+    $stmt->bindParam(':prijs', $prijs);
     $stmt->bindParam(':id', $gerecht_id);
     $stmt->execute();
 
@@ -101,8 +107,14 @@ $dbh = null;
             <?php } ?>
         </select>
         <br><br>
+        <label for="gerecht_naam">Naam:</label>
+        <input type="text" name="gerecht_naam" id="gerecht_naam">
+        <br><br>
         <label for="bijschrijving">Bijschrijving:</label>
         <input type="text" name="bijschrijving" id="bijschrijving">
+        <br><br>
+        <label for="prijs">Prijs:</label>
+        <input type="text" name="prijs" id="prijs">
         <br><br>
         <input type="submit" name="submit" value="Bijwerken">
     </form>
