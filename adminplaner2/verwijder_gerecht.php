@@ -121,5 +121,8 @@ $dbh = null;
 </div>
 
 
-
+<div class="form-row">
+                    <label for="vakantie">Vakantie:</label>
+                    <input type="text" id="vakantie" name="vakantie" required><br>
+                </div>
 </html>
